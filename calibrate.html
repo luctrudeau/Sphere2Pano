@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<title>Sphere2Pano Calibration</title>
+
+<head>
+<link rel="stylesheet" type="text/css" href="css/imgareaselect-default.css" />
+<script type="text/javascript" src="scripts/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.imgareaselect.pack.js"></script>
+</head>
+<body>
+
+<xmp theme="united" style="display:none;">
+Click in the image to identify the sphere. __You can [Refresh the page](calibrate.html) for a more recent image__
+</xmp>
+		<form action="360map" method="post">
+			<input type="submit" value="BuildMap" id="buildMap" disabled><br/>
+
+			<img id="photo" src="360cam.jpg"/><br/>
+
+			x:<input type="text" id="x1" name="x1" value="-" readonly/>
+			y:<input type="text" id="y1" name="y1" value="-" readonly/>
+			width:<input type="text" id="w" name="w" value="-" readonly/>
+			height:<input type="text" id="h" name="h" value="-" readonly/>
+		</form>
+
+		<script type="text/javascript">
+
+			function preview(img, selection) {
+    			if (!selection.width || !selection.height)
+        			return;
+    
+    			var scaleX = 100 / selection.width;
+    			var scaleY = 100 / selection.height;
+
+    			$('#preview img').css({
+        			width: Math.round(scaleX * 300),
+        			height: Math.round(scaleY * 300),
+        			marginLeft: -Math.round(scaleX * selection.x1),
+        			marginTop: -Math.round(scaleY * selection.y1)
+    			});
+
+    			$('#x1').val(selection.x1);
+    			$('#y1').val(selection.y1);
+    			$('#w').val(selection.width);
+    			$('#h').val(selection.height); 
+    			$('#buildMap').removeAttr('disabled');   
+			}
+
+			$(document).ready(function () {
+    			$('img#photo').imgAreaSelect({
+        			handles: true,
+        			onSelectChange: preview,
+                    aspectRatio: '1:1',
+    			});
+			});
+		</script>
+
+
+		<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+</body>
+</html>
