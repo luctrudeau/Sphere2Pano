@@ -12,13 +12,13 @@
 <xmp theme="united" style="display:none;">
 Click in the image to identify the sphere. __You can [Refresh the page](calibrate.html) for a more recent image__
 </xmp>
-		<form action="360map" method="post">
+		<form action="index.html" method="post">
 			<input type="submit" value="BuildMap" id="buildMap" disabled><br/>
 
 			<img id="photo" src="360cam.jpg"/><br/>
 
-			x:<input type="text" id="x1" name="x1" value="-" readonly/>
-			y:<input type="text" id="y1" name="y1" value="-" readonly/>
+			x:<input type="text" id="x" name="x" value="-" readonly/>
+			y:<input type="text" id="y" name="y" value="-" readonly/>
 			width:<input type="text" id="w" name="w" value="-" readonly/>
 			height:<input type="text" id="h" name="h" value="-" readonly/>
 		</form>
@@ -39,8 +39,8 @@ Click in the image to identify the sphere. __You can [Refresh the page](calibrat
         			marginTop: -Math.round(scaleY * selection.y1)
     			});
 
-    			$('#x1').val(selection.x1);
-    			$('#y1').val(selection.y1);
+    			$('#x').val(selection.x1);
+    			$('#y').val(selection.y1);
     			$('#w').val(selection.width);
     			$('#h').val(selection.height); 
     			$('#buildMap').removeAttr('disabled');   
