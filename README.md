@@ -18,11 +18,15 @@ ruby -e "$(curl -kfsSL https://raw.githubusercontent.com/Homebrew/install/master
 ```
 brew tap homebrew/science
 ```
-* Now, we can install OpenCV using brew:
+* Now, we can install OpenCV using brew
 ```
 brew install opencv
 ```
-* Almost there, we just need to link OpenCV to python:
+* Almost there, open you python folder
+```
+cd /Library/Python/2.7/site-packages/
+```
+* Add the link to OpenCV
 ```
 ln -s /usr/local/Cellar/opencv/2.4.10/lib/python2.7/site-packages/cv.py cv.py
 ln -s /usr/local/Cellar/opencv/2.4.10/lib/python2.7/site-packages/cv2.so cv2.so
