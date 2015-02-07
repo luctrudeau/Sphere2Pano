@@ -12,7 +12,7 @@ Sphere2Pano is a simple tool to convert image taken from mirrored-spheres to pan
 Open a terminal and enter the following commands:
 * First, install brew
 ```
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ruby -e "$(curl -kfsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 * Next, add _homebrew/science_
 ```
